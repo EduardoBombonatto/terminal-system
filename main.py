@@ -1,5 +1,6 @@
 import os
 from produtos.telaPrincipalProduto import telaPrincipalProduto
+from clientes.telaPrincipalClientes import telaPrincipalClientes
 
 def main():
     #limpa a tela do terminal
@@ -16,18 +17,28 @@ def main():
     print("0      | Sair do sistema")
     print()
 
-    numero = int(input("Digite sua escolha: "))
-    #forca o usuario a escolher uma das opcoes do menu, caso contrario sera invalido!
-    while numero not in (0,1,2,3,4):
-        numero = int(input("Numero invalido, escolha um numero acima: "))
+    while True:
+        entrada = input("Digite um número inteiro: ")
+        #verifica se o usuario nao apertou enter sem querer, ou nao tem entrada
+        if entrada == "":
+            continue
+        try:
+            #verifica se a entrada foi um numero
+            numero = int(entrada)
+            #se for um numero tem que estar entre as opcoes
+            if numero not in (0, 1, 2, 3, 4):
+                print("Opção inválida.")
+                continue
+            break  # Sai do loop se o número estiver correto
+        except ValueError:
+            print("Opção inválida.")
     
     if numero == 1:
         #chama a tela de Produtos
         telaPrincipalProduto(main)
     if numero == 2:
         #chama a tela de Clientes
-        os.system('cls')
-        print("Clientes")
+        telaPrincipalClientes(main)
     if numero == 3:
         #chama a tela de Vendas
         os.system('cls')
