@@ -1,6 +1,7 @@
 import os
 from produtos.telaPrincipalProduto import telaPrincipalProduto
 from clientes.telaPrincipalClientes import telaPrincipalClientes
+from vendas.telaPrincipalVendas import telaPrincipalVendas
 
 def main():
     #limpa a tela do terminal
@@ -41,8 +42,7 @@ def main():
         telaPrincipalClientes(main)
     if numero == 3:
         #chama a tela de Vendas
-        os.system('cls')
-        print("Vendas")
+        telaPrincipalVendas(main)
     if numero == 4:
         #chama a tela de Usuarios
         os.system('cls')
