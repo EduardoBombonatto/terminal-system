@@ -5,6 +5,19 @@ def cadastraVenda(telaPrincipalVendas, main):
     #parametros dos produtos: id, nomeCliente, nomeProduto
     #parametrosProduto = []
     print("Cadastro de venda!")
-    if int(input("digite 0 para voltar a tela de produtos ou digite qualquer outro numero para sair do sistema!: ")) == 0:
-        telaPrincipalVendas(main)
-    return None
+    while True:
+        entrada = input("Digite 0 para voltar a pagina de clientes: ")
+        #verifica se o usuario nao apertou enter sem querer, ou nao tem entrada
+        if entrada == "":
+            continue
+        try:
+            #verifica se a entrada foi um numero
+            numero = int(entrada)
+            #se for um numero tem que estar entre as opcoes
+            if numero != 0:
+                print("Opção inválida.")
+                continue
+            break  # Sai do loop se o número estiver correto
+        except ValueError:
+            print("Opção inválida.")
+    telaPrincipalVendas(main)
